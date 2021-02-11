@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+
+  postgres:
+    image: postgres
+    environment:
+      - POSTGRES_PASSWORD=postgres
+      - POSTGRES_DB=expediente_clinico
+
+    volumes:
+      - ./postgres_data:/var/lib/postgresql/data
+      - ./postgres:/docker-entrypoint-initdb.d/
+    ports:
+      - 5432:5432
